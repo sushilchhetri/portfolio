@@ -474,7 +474,7 @@
               headers: { Accept: "application/json" },
               body: new FormData(form),
             })
-          : await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(D.email)}`, {
+          : await fetch(`https://formsubmit.co/ajax/${D.formSubmitId || encodeURIComponent(D.email)}`, {
               method: "POST",
               headers: { "Content-Type": "application/json", Accept: "application/json" },
               body: JSON.stringify({ ...data, _subject: subject, _template: "table", _captcha: "false", _replyto: data.email }),

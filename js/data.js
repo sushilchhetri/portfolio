@@ -31,6 +31,9 @@ window.PORTFOLIO = {
   //   The FIRST message sends you an activation email; click "Activate Form" once and it works from then on.
   // - formspreeId: or create a free form at https://formspree.io and paste its id (e.g. "xyzabcd"); it takes priority.
   formSubmit: true,
+  // Alias from FormSubmit's activation email. Used instead of your email address in the
+  // form code, so bots reading the page can't harvest your address from it.
+  formSubmitId: "bfd852579c2f68f601c4f54c497a9189",
   formspreeId: "",
 
   socials: [
