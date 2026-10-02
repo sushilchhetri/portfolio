@@ -480,13 +480,17 @@
               body: JSON.stringify({ ...data, _subject: subject, _template: "table", _captcha: "false", _replyto: data.email }),
             });
         const json = await res.json().catch(() => ({}));
-        if (!res.ok || json.success === false || json.success === "false") throw new Error(json.message);
+        if (!res.ok || json.success === false || json.success === "false") throw new Error(json.message || "");
         form.reset();
         status.className = "form-status ok";
         status.textContent = "Thanks! Your message has been sent. I'll reply soon.";
-      } catch {
+      } catch (err) {
         status.className = "form-status err";
-        status.textContent = `Couldn't send right now. Please email me directly at ${D.email}.`;
+        // FormSubmit replies "This form needs Activation..." until the site owner clicks
+        // the activation link it emails them; show that instead of a generic error.
+        status.textContent = /activat/i.test(err.message)
+          ? "This form isn't activated yet. (Site owner: check your inbox for FormSubmit's activation email.) Meanwhile, please email me directly."
+          : `Couldn't send right now. Please email me directly at ${D.email}.`;
       } finally {
         btn.disabled = false;
       }
