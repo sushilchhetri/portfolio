@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sushil Chhetri | Senior Android Developer</title>
+  <meta name="description" content="Sushil Chhetri, Senior Android Developer with 5+ years building production apps with Kotlin, Jetpack Compose, MVVM and Clean Architecture. Available for freelance work." />
+  <meta property="og:title" content="Sushil Chhetri | Senior Android Developer" />
+  <meta property="og:description" content="Kotlin, Jetpack Compose, Clean Architecture, BLE and ML Kit. Available for freelance work." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#050b09" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop stop-color='%233ddc97'/%3E%3Cstop offset='1' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23050b09'/%3E%3Ctext x='14' y='46' font-family='Arial' font-weight='bold' font-size='38' fill='url(%23g)'%3ES%3C/text%3E%3Ccircle cx='48' cy='43' r='4' fill='%2314b8a6'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Colors + images (loads first so colors apply before paint) -->
+  <script src="js/config.js"></script>
+</head>
+<body>
+  <!-- Android-style boot screen (auto-hides even if JS fails) -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <svg class="boot-bot" viewBox="0 0 120 80" fill="none">
+        <path d="M18 70a42 42 0 0 1 84 0z" fill="url(#bg)" />
+        <circle cx="42" cy="50" r="5" fill="#050b09" /><circle cx="78" cy="50" r="5" fill="#050b09" />
+        <path d="M34 16l10 16M86 16l-10 16" stroke="url(#bg)" stroke-width="5" stroke-linecap="round" />
+        <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="var(--primary)" /><stop offset="1" stop-color="var(--secondary)" /></linearGradient></defs>
+      </svg>
+      <div class="boot-bar"><span></span></div>
+      <p class="boot-text">Launching portfolio…</p>
+    </div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="Home"><span id="logo-letter">S</span><span class="logo-dot">.</span></a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#apps">My Apps</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="nav-cta-mobile">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#contact" class="btn outline nav-cta">Let's Talk</a>
+        <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hello reveal">Hi, I'm</p>
+          <h1 class="reveal" data-bind="name"></h1>
+          <p class="hero-role reveal"><span class="grad" data-bind="role"></span></p>
+          <p class="lead reveal" data-bind="tagline"></p>
+          <div class="cta-row reveal" id="hero-cta"></div>
+          <div class="socials reveal" id="hero-socials"></div>
+        </div>
+
+        <div class="hero-visual reveal" id="hero-visual">
+          <div class="orbit">
+            <div class="orbit-dots"></div>
+            <div class="orbit-glow"></div>
+            <div class="orbit-ring"></div>
+            <div class="portrait" id="portrait">
+              <!-- Android phone, shown when no profile image is set in config.js -->
+              <div class="phone" id="phone">
+                <span class="phone-btn power"></span>
+                <span class="phone-btn vol"></span>
+                <div class="phone-screen">
+                  <div class="ph-status">
+                    <span id="ph-time">9:41</span>
+                    <span class="ph-cam"></span>
+                    <span class="ph-sys"><i></i><i></i><b></b></span>
+                  </div>
+                  <div class="ph-appbar">
+                    <div><small>Good to see you 👋</small><strong>My Apps</strong></div>
+                    <div class="ph-avatar" id="ph-avatar"></div>
+                  </div>
+                  <div class="ph-chips"><span class="on">All</span><span>Compose</span><span>Kotlin</span></div>
+                  <div class="ph-card">
+                    <div class="ph-card-top">
+                      <div><small>Crashes &amp; ANRs</small><strong>−30%</strong></div>
+                      <span class="ph-trend">Kotlin · Compose</span>
+                    </div>
+                    <div class="ph-bars">
+                      <i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i><i style="--h:80%"></i><i style="--h:60%"></i><i style="--h:95%"></i><i style="--h:75%"></i>
+                    </div>
+                  </div>
+                  <div class="ph-list" id="ph-list"></div>
+                  <div class="ph-fab">+</div>
+                  <div class="ph-nav"><span class="on"><i></i></span><span><i></i></span><span><i></i></span><span><i></i></span></div>
+                  <div class="ph-gesture"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="avail-card" id="avail-card">
+            <span class="avail-top"><span id="avail-text"></span><span class="pulse"></span></span>
+            <span class="avail-sub">Let's build something great together.</span>
+            <span class="avail-arrow" data-icon="arrowUpRight"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-row reveal">
+          <div>
+            <span class="eyebrow">Portfolio</span>
+            <h2>Featured Projects</h2>
+          </div>
+          <a class="btn doc-btn" id="case-pdf" download>Download case studies (PDF) <span data-icon="download"></span></a>
+        </div>
+        <div id="spotlight"></div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ PERSONAL APPS ============ -->
+    <section class="section" id="apps">
+      <div class="container">
+        <div class="section-row reveal">
+          <div>
+            <span class="eyebrow">Side projects</span>
+            <h2>Personal Apps</h2>
+          </div>
+          <p class="section-note">Apps I design, build and publish on my own.</p>
+        </div>
+        <div class="apps-grid" id="apps-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-row reveal">
+          <div>
+            <span class="eyebrow">About me</span>
+            <h2>The developer behind <span class="grad">the apps</span></h2>
+          </div>
+        </div>
+        <div class="stats reveal" id="stats"></div>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <div id="about-text"></div>
+            <h3 class="sub-title">Education & certification</h3>
+            <ul class="edu" id="edu"></ul>
+          </div>
+          <div class="code-card reveal" id="code-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-row reveal">
+          <div>
+            <span class="eyebrow">Career</span>
+            <h2>Work Experience</h2>
+          </div>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-row reveal">
+          <div>
+            <span class="eyebrow">Toolkit</span>
+            <h2>Skills & Technologies</h2>
+          </div>
+        </div>
+        <div class="skills-grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-row reveal">
+          <div>
+            <span class="eyebrow">Freelance</span>
+            <h2>How I can help you</h2>
+          </div>
+        </div>
+        <div class="services-grid" id="services-grid"></div>
+
+        <div class="cta-band reveal">
+          <div>
+            <h3>Have an app idea?</h3>
+            <p>Let's turn it into a fast, reliable Android app your users will love.</p>
+          </div>
+          <a href="#contact" class="btn primary">Start a project <span data-icon="arrow"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS (shown only if data has entries) ============ -->
+    <section class="section" id="testimonials" hidden>
+      <div class="container">
+        <div class="section-row reveal"><div><span class="eyebrow">Kind words</span><h2>What clients say</h2></div></div>
+        <div class="testimonials-grid" id="testimonials-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-copy reveal">
+            <span class="eyebrow">Contact</span>
+            <h2>Let's build <span class="grad">something great</span></h2>
+            <p class="muted">Hiring, need a freelancer, or want to talk Android? Send me a message and I'll usually reply within 24 hours.</p>
+            <ul class="contact-list" id="contact-list"></ul>
+          </div>
+          <form class="contact-form card reveal" id="contact-form" novalidate>
+            <div class="field-row">
+              <label class="field"><span>Your name</span><input name="name" type="text" required autocomplete="name" placeholder="Jane Doe" /></label>
+              <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email" placeholder="jane@company.com" /></label>
+            </div>
+            <label class="field">
+              <span>I'm reaching out about</span>
+              <select name="topic">
+                <option>A freelance project</option>
+                <option>A full-time / contract role</option>
+                <option>Collaboration</option>
+                <option>Just saying hi</option>
+              </select>
+            </label>
+            <label class="field"><span>Message</span><textarea name="message" rows="5" required placeholder="Tell me about your app, timeline and budget…"></textarea></label>
+            <button class="btn primary full" type="submit">Send message <span data-icon="send"></span></button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> <span data-bind="name"></span>. All rights reserved.</p>
+      <div class="socials" id="footer-socials"></div>
+      <a href="#home" class="to-top" aria-label="Back to top" data-icon="arrowUp"></a>
+    </div>
+  </footer>
+
+  <!-- Project detail popup -->
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal-inner" id="modal-content"></div>
+  </dialog>
+
+  <!-- Email options menu (mailto alone does nothing without a mail app set up) -->
+  <div class="email-pop" id="email-pop" role="menu" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <a href="#home" class="fab-top" id="fab-top" aria-label="Back to top" data-icon="arrowUp"></a>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
